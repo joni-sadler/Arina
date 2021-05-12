@@ -89,13 +89,23 @@ const Circle = styled.div`
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  background-color: gray;
+  background-color: #ffffff;
+  opacity: 15%;
   margin: 5px;
+  z-index: 1;
+  &:active {
+    background-color: #ffffff;
+    opacity: 45%;
+  }
 `;
 
 const CircleVector = styled.img`
-  height: 15px;
-  width: 15px;
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 12.5%;
+  bottom: 12.5%;
+  background: #ffffff;
 `;
 
 const TopContainer = styled.div`
