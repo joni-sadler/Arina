@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Vector_Teardrop from "../graphics/Vector_Teardrop.png";
 import Vector_Circle from "../graphics/Vector_Circle.png";
 import Vector_Oval from "../graphics/Vector_Oval.png";
@@ -22,22 +23,30 @@ const Sidebar = () => {
         </TopLeftContainer>
         <Line src={Line_Sidebar} />
         <CircleContainer>
-          <Circle>
-            <CircleVector src={Vector_Home} />
-          </Circle>
-          <Circle>
-            <CircleVector src={Vector_Analytics} />
-          </Circle>
+          <Link to={`/`}>
+            <Circle>
+              <CircleVector src={Vector_Home} />
+            </Circle>
+          </Link>
+          <Link to={`/analytics`}>
+            <Circle>
+              <CircleVector src={Vector_Analytics} />
+            </Circle>
+          </Link>
         </CircleContainer>
       </TopContainer>
       <BottomContainer>
         <CircleContainer>
-          <Circle>
-            <CircleVector src={Vector_User_Account} />
-          </Circle>
-          <Circle>
-            <CircleVector src={Vector_FAQ} />
-          </Circle>
+          <Link to={`/user_account`}>
+            <Circle>
+              <CircleVector src={Vector_User_Account} />
+            </Circle>
+          </Link>
+          <Link to={`/faq`}>
+            <Circle>
+              <CircleVector src={Vector_FAQ} />
+            </Circle>
+          </Link>
         </CircleContainer>
         <Line src={Line_Sidebar_Bottom} />
         <Vector src={Vector_Exit} />
