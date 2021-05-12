@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Analytics from "./pages/Analytics";
 import UserAccount from "./pages/UserAccount";
+import FAQ from "./pages/FAQ";
 
 const App = () => {
   return (
