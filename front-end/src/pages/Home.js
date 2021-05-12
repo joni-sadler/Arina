@@ -18,6 +18,7 @@ const Home = () => {
 const Container = styled.div`
   height: 100%;
   width: 100%;
+  background-color: #e5e5e5;
 `;
 
 const ClassBox = styled.div`
