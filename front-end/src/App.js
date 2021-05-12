@@ -11,6 +11,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Container>
+        <Sidebar />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -25,7 +26,6 @@ const App = () => {
             <FAQ />
           </Route>
         </Switch>
-        <Sidebar />
       </Container>
     </BrowserRouter>
   );
