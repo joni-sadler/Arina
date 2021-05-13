@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import styled from "styled-components";
 import Vector_Virtual_Class from "../graphics/Vector_Virtual_Class.png";
@@ -6,6 +6,29 @@ import Vector_Lightning from "../graphics/Vector_Lightning.png";
 import Vector_Hybrid from "../graphics/Vector_Hybrid.png";
 
 const ClassCreationForm = () => {
+  const [showStepTwo, setShowStepTwo] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    console.log("modal open");
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    console.log("modal closed");
+    setIsOpen(false);
+  };
+
+  const nextStep = () => {
+    console.log("next step");
+    setShowStepTwo(true);
+  };
+
+  const backToStepOne = () => {
+    console.log("Back to step one");
+    setShowStepTwo(false);
+  };
+
   const formik = useFormik({
     initialValues: {
       className: "",
@@ -17,111 +40,137 @@ const ClassCreationForm = () => {
       whiteBoard: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // console.log(JSON.stringify(values, null, 2));
+      console.log(values);
     },
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <CreateClass>
-        <CreateDetailedClass>Create Detailed Class</CreateDetailedClass>
-        <CreateClassTemplateContainer>
-          <CreateClassTemplate>Create Class Template</CreateClassTemplate>
-          <Toggle>
-            <ToggleCircle />
-          </Toggle>
-        </CreateClassTemplateContainer>
-      </CreateClass>
-      <ClassType>
-        <p>Class Type</p>
-        <Rectangle>
-          <Circle>
-            <Vector src={Vector_Virtual_Class} />
-          </Circle>
-          <RectangleTextContainer>
-            <p>Virtual Class</p>
-            <p>Will be hosted online on ARINA Live</p>
-          </RectangleTextContainer>
-        </Rectangle>
-        <Rectangle>
-          <Circle>
-            <Vector src={Vector_Lightning} />
-          </Circle>
-          <RectangleTextContainer>
-            <p>In Person Class</p>
-            <p>Will be hosted in person</p>
-          </RectangleTextContainer>
-        </Rectangle>
-        <Rectangle>
-          <Circle>
-            <Vector src={Vector_Hybrid} />
-          </Circle>
-          <RectangleTextContainer>
-            <p>Hybrid Class</p>
-            <p>Will be hosted both virtually and in person simultaneously</p>
-          </RectangleTextContainer>
-        </Rectangle>
-      </ClassType>
+    // <form onSubmit={formik.handleSubmit}>
+    <form>
+      {!showStepTwo ? (
+        <div>
+          <button onClick={closeModal}>Back to Class Management</button>
+          <CreateClass>
+            <CreateDetailedClass>Create Detailed Class</CreateDetailedClass>
+            <CreateClassTemplateContainer>
+              <CreateClassTemplate>Create Class Template</CreateClassTemplate>
+              <Toggle>
+                <ToggleCircle />
+              </Toggle>
+            </CreateClassTemplateContainer>
+          </CreateClass>
+          <ClassType>
+            <p>Class Type</p>
+            <Rectangle>
+              <Circle>
+                <Vector src={Vector_Virtual_Class} />
+              </Circle>
+              <RectangleTextContainer>
+                <p>Virtual Class</p>
+                <p>Will be hosted online on ARINA Live</p>
+              </RectangleTextContainer>
+            </Rectangle>
+            <Rectangle>
+              <Circle>
+                <Vector src={Vector_Lightning} />
+              </Circle>
+              <RectangleTextContainer>
+                <p>In Person Class</p>
+                <p>Will be hosted in person</p>
+              </RectangleTextContainer>
+            </Rectangle>
+            <Rectangle>
+              <Circle>
+                <Vector src={Vector_Hybrid} />
+              </Circle>
+              <RectangleTextContainer>
+                <p>Hybrid Class</p>
+                <p>
+                  Will be hosted both virtually and in person simultaneously
+                </p>
+              </RectangleTextContainer>
+            </Rectangle>
+          </ClassType>
 
-      <InputContainer>
-        <FormText>Class Name</FormText>
-        <input
-          id="className"
-          name="className"
-          type="classNme"
-          onChange={formik.handleChange}
-          value={formik.values.className}
-        />
-      </InputContainer>
-      <HorizontalContainer>
-        <InputContainer>
-          <FormText>Start Date & Time</FormText>
-          <input
-            id="startDateTime"
-            name="startDateTime"
-            type="startDateTime"
-            onChange={formik.handleChange}
-            value={formik.values.startDateTime}
-          />
-        </InputContainer>
-        <InputContainer>
-          <FormText>Repeat</FormText>
-          <input
-            id="repeat"
-            name="repeat"
-            type="repeat"
-            onChange={formik.handleChange}
-            value={formik.values.repeat}
-          />
-        </InputContainer>
-      </HorizontalContainer>
+          <InputContainer>
+            <FormText>Class Name</FormText>
+            <input
+              id="className"
+              name="className"
+              type="classNme"
+              onChange={formik.handleChange}
+              value={formik.values.className}
+            />
+          </InputContainer>
+          <HorizontalContainer>
+            <InputContainer>
+              <FormText>Start Date & Time</FormText>
+              <input
+                id="startDateTime"
+                name="startDateTime"
+                type="startDateTime"
+                onChange={formik.handleChange}
+                value={formik.values.startDateTime}
+              />
+            </InputContainer>
+            <InputContainer>
+              <FormText>Repeat</FormText>
+              <input
+                id="repeat"
+                name="repeat"
+                type="repeat"
+                onChange={formik.handleChange}
+                value={formik.values.repeat}
+              />
+            </InputContainer>
+          </HorizontalContainer>
 
-      <HorizontalContainer>
-        <InputContainer>
-          <FormText>Duration</FormText>
-          <input
-            id="duration"
-            name="duration"
-            type="duration"
-            onChange={formik.handleChange}
-            value={formik.values.duration}
-          />
-        </InputContainer>
-        <InputContainer>
-          <FormText>Price</FormText>
-          <input
-            id="price"
-            name="price"
-            type="price"
-            onChange={formik.handleChange}
-            value={formik.values.price}
-          />
-        </InputContainer>
-      </HorizontalContainer>
+          <HorizontalContainer>
+            <InputContainer>
+              <FormText>Duration</FormText>
+              <input
+                id="duration"
+                name="duration"
+                type="duration"
+                onChange={formik.handleChange}
+                value={formik.values.duration}
+              />
+            </InputContainer>
+            <InputContainer>
+              <FormText>Price</FormText>
+              <input
+                id="price"
+                name="price"
+                type="price"
+                onChange={formik.handleChange}
+                value={formik.values.price}
+              />
+            </InputContainer>
+          </HorizontalContainer>
 
-      <HorizontalContainer>
-        <FormText>Step 1 Of 2</FormText>
-        <button>Next Step</button>
-      </HorizontalContainer>
+          <HorizontalContainer>
+            <FormText>Step 1 Of 2</FormText>
+            <button onClick={() => nextStep()} type="button">
+              Next Step
+            </button>
+          </HorizontalContainer>
+        </div>
+      ) : (
+        <div>
+          <button onClick={backToStepOne}>Back to Step 1</button>
+          <CreateDetailedClass>Create Detailed Class</CreateDetailedClass>
+          <ClassType>
+            <p>Class Description</p>
+            <ClassDescriptionInput></ClassDescriptionInput>
+            <p>Whiteboard</p>
+            <WhiteboardInput></WhiteboardInput>
+          </ClassType>
+          <HorizontalContainer>
+            <FormText>Step 2 Of 2</FormText>
+            <button onClick={formik.handleSubmit}>Create Class</button>
+          </HorizontalContainer>
+        </div>
+      )}
     </form>
   );
 };
@@ -243,6 +292,24 @@ const FormText = styled.p`
 const HorizontalContainer = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const ClassDescriptionInput = styled.div`
+  width: 412px;
+  height: 75.12px;
+  background: #ffffff;
+  border: 1px solid rgba(218, 210, 203, 0.6);
+  box-sizing: border-box;
+  border-radius: 3px;
+`;
+
+const WhiteboardInput = styled.div`
+  width: 244.83px;
+  height: 82.97px;
+  background: #ffffff;
+  border: 1px solid rgba(218, 210, 203, 0.6);
+  box-sizing: border-box;
+  border-radius: 3px;
 `;
 
 export default ClassCreationForm;
