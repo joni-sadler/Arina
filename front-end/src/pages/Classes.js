@@ -1,26 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
 import Vector_Three_Dots from "../graphics/Vector_Three_Dots.png";
 import Vector_Plus from "../graphics/Vector_Plus.png";
-import SignupForm from "../components/SignupForm";
+import ClassCreationForm from "../components/ClassCreationForm";
 
 const Classes = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
-  const setModalOpenToTrue = () => {
+  const openModal = () => {
     console.log("modal open");
-    setModalOpen(true);
+    setIsOpen(true);
   };
 
-  const setModalOpenToFalse = () => {
+  const closeModal = () => {
     console.log("modal closed");
-    setModalOpen(false);
+    setIsOpen(false);
   };
-
-  // useEffect(() => {
-  //   setModalOpen(!modalOpen);
-  // }, [modalOpen]);
 
   return (
     <Container>
@@ -30,23 +26,21 @@ const Classes = () => {
             <HeaderText>Your Next Class</HeaderText>
             <Vector src={Vector_Three_Dots} />
           </Header>
-          <SignupForm />
         </ClassBox>
       </TopSection>
       <BottomSection>
-        <AddClassCircle onClick={setModalOpenToTrue}>
+        <AddClassCircle onClick={openModal}>
           <VectorPlusSign src={Vector_Plus} />
-          {modalOpen && (
-            <div>
-              <Modal isOpen={modalOpen}>
-                <button onClick={setModalOpenToFalse}>
-                  Back to Class Management
-                </button>
-                <SignupForm />
-              </Modal>
-            </div>
-          )}
         </AddClassCircle>
+        <Modal
+          isOpen={modalIsOpen}
+          style={customStyles}
+          ariaHideApp={false}
+          onRequestClose={closeModal}
+        >
+          <button onClick={closeModal}>Back to Class Management</button>
+          <ClassCreationForm />
+        </Modal>
       </BottomSection>
     </Container>
   );
@@ -124,5 +118,19 @@ const VectorPlusSign = styled.img`
   height: 14px;
   width: 14px;
 `;
+
+const customStyles = {
+  content: {
+    position: "absolute",
+    width: "450px",
+    height: "90%",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 export default Classes;

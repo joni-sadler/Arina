@@ -23,7 +23,7 @@ const Sidebar = () => {
         </TopLeftContainer>
         <Line src={Line_Sidebar} />
         <CircleContainer>
-          <Link to={`/`}>
+          <Link to={`/classes`}>
             <Circle>
               <CircleVector src={Vector_Home} />
             </Circle>
@@ -98,10 +98,8 @@ const Circle = styled.div`
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  background-color: #ffffff;
-  opacity: 15%;
+  background-color: rgba(255, 255, 255, 0.15);
   margin: 5px;
-  z-index: 1;
   &:active {
     background-color: #ffffff;
     opacity: 45%;
@@ -110,11 +108,7 @@ const Circle = styled.div`
 
 const CircleVector = styled.img`
   position: absolute;
-  left: 12.5%;
-  right: 12.5%;
-  top: 12.5%;
-  bottom: 12.5%;
-  background: #ffffff;
+  color: #ffffff;
 `;
 
 const TopContainer = styled.div`
