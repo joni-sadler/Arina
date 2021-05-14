@@ -36,7 +36,6 @@ const ClassCreationForm = ({ onCloseModal }) => {
     },
   });
   return (
-    // <form onSubmit={formik.handleSubmit}>
     <form>
       {!showStepTwo ? (
         <div>
@@ -102,7 +101,7 @@ const ClassCreationForm = ({ onCloseModal }) => {
             <div>
               <InputContainer>
                 <FormText>Class Name</FormText>
-                <Input
+                <ClassInput
                   id="className"
                   name="className"
                   type="className"
@@ -155,17 +154,16 @@ const ClassCreationForm = ({ onCloseModal }) => {
                   />
                 </InputContainer>
               </HorizontalContainer>
+              <HorizontalContainer>
+                <FooterText>Step 1 Of 2</FooterText>
+                <Button onClick={() => nextStep()} type="button">
+                  <ButtonText>Next Step</ButtonText>
+                </Button>
+              </HorizontalContainer>
             </div>
           ) : (
             <InactiveFields />
           )}
-
-          <HorizontalContainer>
-            <FooterText>Step 1 Of 2</FooterText>
-            <Button onClick={() => nextStep()} type="button">
-              <ButtonText>Next Step</ButtonText>
-            </Button>
-          </HorizontalContainer>
         </div>
       ) : (
         <SecondPageContainer>
@@ -175,7 +173,7 @@ const ClassCreationForm = ({ onCloseModal }) => {
             </Back>
             <CreateDetailedClass>Create Detailed Class</CreateDetailedClass>
             <ClassType>
-              <p>Class Description</p>
+              <FormText>Class Description</FormText>
               <ClassDescriptionInput
                 id="classDescription"
                 name="classDescription"
@@ -184,7 +182,7 @@ const ClassCreationForm = ({ onCloseModal }) => {
                 value={formik.values.classDescription}
               />
 
-              <p>Whiteboard</p>
+              <FormText>Whiteboard</FormText>
               <WhiteboardInput
                 id="Whiteboard"
                 name="Whiteboard"
@@ -220,14 +218,11 @@ const CreateClass = styled.div`
 `;
 
 const CreateDetailedClass = styled.p`
-  /* Widget Heading */
-
   font-family: Kepler Std;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 20px;
-  /* identical to box height, or 111% */
   text-transform: capitalize;
   color: #000000;
 `;
@@ -245,8 +240,6 @@ const CreateClassTemplate = styled.p`
   font-size: 12px;
   line-height: 20px;
   margin: 20px;
-  /* identical to box height, or 200% */
-
   text-align: center;
   text-transform: capitalize;
   color: #000000;
@@ -344,13 +337,22 @@ const ClassTypeDescription = styled.p`
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 5px;
+`;
+
+const ClassInput = styled.input`
+  width: 412px;
+  height: 35px;
+  width: 195px;
+  border: 1px solid rgba(237, 237, 237, 0.6);
+  box-sizing: border-box;
+  border-radius: 3px;
 `;
 
 const Input = styled.input`
   height: 35px;
   width: 195px;
-  border: 1px solid rgba(237, 237, 237, 0.6);
+  border: 1px solid rgba(218, 210, 203, 0.6);
   box-sizing: border-box;
   border-radius: 3px;
 `;
@@ -361,9 +363,9 @@ const FormText = styled.p`
   font-weight: normal;
   font-size: 10px;
   line-height: 100%;
-  /* identical to box height, or 10px */
-  letter-spacing: 0.3125px;
-  color: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.65);
+  margin: 0px;
+  padding: 0px;
 `;
 
 const Button = styled.button`

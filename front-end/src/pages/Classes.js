@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
-import Vector_Three_Dots from "../graphics/Vector_Three_Dots.png";
 import Vector_Plus from "../graphics/Vector_Plus.png";
 import ClassCreationForm from "../components/ClassCreationForm";
+import ClassBox from "../components/ClassBox";
 
 const Classes = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -20,14 +20,9 @@ const Classes = () => {
 
   return (
     <Container>
-      <TopSection>
-        <ClassBox>
-          <Header>
-            <HeaderText>Your Next Class</HeaderText>
-            <Vector src={Vector_Three_Dots} />
-          </Header>
-        </ClassBox>
-      </TopSection>
+      <div>
+        <ClassBox />
+      </div>
       <BottomSection>
         <AddClassCircle onClick={openModal}>
           <VectorPlusSign src={Vector_Plus} />
@@ -38,7 +33,6 @@ const Classes = () => {
           ariaHideApp={false}
           onRequestClose={closeModal}
         >
-          {/* <button onClick={closeModal}>Back to Class Management</button> */}
           <ClassCreationForm onCloseModal={closeModal} />
         </Modal>
       </BottomSection>
@@ -54,46 +48,6 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: space-between;
   background-color: #e5e5e5;
-`;
-
-const TopSection = styled.div``;
-
-const ClassBox = styled.div`
-  position: absolute;
-  width: 331px;
-  height: 326px;
-  left: 93px;
-  top: 31px;
-  background: #ffffff;
-  border: 1px solid #dbbcae;
-  box-sizing: border-box;
-  box-shadow: 6px 6px 21px rgba(0, 0, 0, 0.05);
-`;
-
-const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 100px;
-`;
-
-const HeaderText = styled.p`
-  position: absolute;
-  /* width: 106px; */
-  height: 20px;
-  /* left: 106px;
-  top: 44px; */
-  font-family: Kepler Std;
-  font-size: 18px;
-  line-height: 20px;
-  text-transform: capitalize;
-  color: #000000;
-`;
-
-const Vector = styled.img`
-  height: 3px;
-  width: 13px;
 `;
 
 const BottomSection = styled.div`
