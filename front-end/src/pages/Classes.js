@@ -38,8 +38,8 @@ const Classes = () => {
           ariaHideApp={false}
           onRequestClose={closeModal}
         >
-          <button onClick={closeModal}>Back to Class Management</button>
-          <ClassCreationForm />
+          {/* <button onClick={closeModal}>Back to Class Management</button> */}
+          <ClassCreationForm onCloseModal={closeModal} />
         </Modal>
       </BottomSection>
     </Container>
