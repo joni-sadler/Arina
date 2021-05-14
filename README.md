@@ -1,5 +1,3 @@
 
+https://user-images.githubusercontent.com/35426752/118285207-35c78500-b49f-11eb-92b4-fd514e09f86e.mp4
 
-<video controls>
-  <source src="https://user-images.githubusercontent.com/35426752/118284467-74107480-b49e-11eb-92db-e0acf68bbc1e.mp4" type="video/mp4">
-  </video>
