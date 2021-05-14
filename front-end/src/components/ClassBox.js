@@ -24,19 +24,19 @@ const ClassBox = () => {
       <DateRegistrationInfo>
         <DurationClassSize>
           <Vector src={Vector_Clock} />
-          <p>60 Minutes</p>
+          <ClassLengthSize>60 Minutes</ClassLengthSize>
         </DurationClassSize>
         <DurationClassSize>
           <Vector src={Vector_Hybrid} />
-          <p>12 People Registered</p>
+          <ClassLengthSize>12 People Registered</ClassLengthSize>
         </DurationClassSize>
       </DateRegistrationInfo>
-      <div>
+      <BlockText>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat.
-      </div>
+      </BlockText>
       <StartClass>
         <Vector src={Start_Class} />
       </StartClass>
@@ -46,8 +46,8 @@ const ClassBox = () => {
 
 const ClassBoxContainer = styled.div`
   position: absolute;
-  width: 45%;
-  height: 50%;
+  width: 35%;
+  height: 55%;
   left: 93px;
   top: 31px;
   background: #ffffff;
@@ -63,6 +63,7 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 40px;
+  margin: 5px;
 `;
 
 const HeaderText = styled.p`
@@ -90,8 +91,9 @@ const DurationClassSize = styled.div`
 
 const ClassName = styled.p`
   font-size: 22px;
+  font-family: Kepler Std;
   margin: 0px;
-  padding: 0px;
+  padding-bottom: 5px;
 `;
 
 const InstructorDate = styled.div`
@@ -99,12 +101,23 @@ const InstructorDate = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-left: 5%;
+  font-weight: 400;
 `;
 
 const ClassDetails = styled.p`
   font-size: 12px;
   margin: 0px;
   padding: 2px 0px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+`;
+
+const ClassLengthSize = styled.p`
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: rgba(126, 93, 84, 1);
+  font-size: 12px;
+  font-weight: 400;
 `;
 
 const ClassInfo = styled.div`
@@ -119,11 +132,19 @@ const Vector = styled.img`
   margin: 5px;
 `;
 
+const BlockText = styled.p`
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+`;
+
 const StartClass = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 5px;
-  margin-top: 10%;
+  margin-top: 5%;
 `;
 
 export default ClassBox;

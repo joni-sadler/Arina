@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import SignupForm from "./SignupForm";
+import SignupForm from "./ClassCreationForm";
 
 const SignupModal = () => {
   const [modalOpen, setModalOpen] = useState(false);

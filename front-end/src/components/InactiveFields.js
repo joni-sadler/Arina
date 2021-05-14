@@ -42,13 +42,12 @@ const InactiveFields = () => {
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 0px 10px;
 `;
 
 const ClassInput = styled.div`
-  width: 412px;
+  width: 100%;
   height: 35px;
-  width: 195px;
   border: 1px solid rgba(237, 237, 237, 0.6);
   box-sizing: border-box;
   border-radius: 3px;
@@ -56,20 +55,18 @@ const ClassInput = styled.div`
 
 const Input = styled.div`
   height: 35px;
-  width: 195px;
+  width: 200px;
   border: 1px solid rgba(237, 237, 237, 0.6);
   box-sizing: border-box;
   border-radius: 3px;
+  margin: 0px;
 `;
 
 const FormText = styled.p`
-  font-family: Pangram;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
-  line-height: 100%;
-  letter-spacing: 0.3125px;
   color: rgba(0, 0, 0, 0.15);
+  margin: 0px;
+  padding: 0px;
 `;
 
 const ButtonInactive = styled.div`
@@ -90,7 +87,7 @@ const ButtonText = styled.p`
 const HorizontalContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin-top: 50px;
+  margin-top: 5%;
 `;
 
 const FooterText = styled.p`

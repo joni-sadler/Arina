@@ -53,9 +53,8 @@ const ClassCreationForm = ({ onCloseModal }) => {
           </CreateClass>
           <ClassType>
             <p>Class Type</p>
-
             <Rectangle
-              active={classType == "Virtual Class"}
+              active={classType === "Virtual Class"}
               onClick={() => setClassType("Virtual Class")}
             >
               <Circle>
@@ -69,7 +68,7 @@ const ClassCreationForm = ({ onCloseModal }) => {
               </RectangleTextContainer>
             </Rectangle>
             <Rectangle
-              active={classType == "In Person Class"}
+              active={classType === "In Person Class"}
               onClick={() => setClassType("In Person Class")}
             >
               <Circle>
@@ -83,7 +82,7 @@ const ClassCreationForm = ({ onCloseModal }) => {
               </RectangleTextContainer>
             </Rectangle>
             <Rectangle
-              active={classType == "Hybrid Class"}
+              active={classType === "Hybrid Class"}
               onClick={() => setClassType("Hybrid Class")}
             >
               <Circle>
@@ -234,14 +233,10 @@ const CreateClassTemplateContainer = styled.div`
 `;
 
 const CreateClassTemplate = styled.p`
-  font-family: Pangram;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 20px;
   margin: 20px;
   text-align: center;
-  text-transform: capitalize;
   color: #000000;
   opacity: 0.35;
 `;
@@ -271,8 +266,8 @@ const ClassType = styled.div`
 `;
 
 const Rectangle = styled.div`
-  width: 414px;
-  height: 64.81px;
+  width: 95%;
+  height: 65px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -280,7 +275,7 @@ const Rectangle = styled.div`
   border: 1px solid #dad2cb;
   box-sizing: border-box;
   border-radius: 3px;
-  margin: 10px;
+  margin: 10px 5px;
   cursor: pointer;
   ${({ active }) =>
     active &&
@@ -311,24 +306,16 @@ const RectangleTextContainer = styled.div`
 `;
 
 const ClassTypeHeader = styled.p`
-  font-family: Pangram;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 100%;
-  letter-spacing: 0.3125px;
   color: #000000;
   padding: 2px;
   margin: 0px;
+  font-weight: 400;
 `;
 
 const ClassTypeDescription = styled.p`
-  font-family: Pangram;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
-  line-height: 100%;
-  letter-spacing: 0.3125px;
   color: rgba(0, 0, 0, 0.65);
   padding: 2px;
   margin: 0px;
@@ -337,13 +324,13 @@ const ClassTypeDescription = styled.p`
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 5px;
+  margin: 0px 5px;
+  padding: 0;
 `;
 
 const ClassInput = styled.input`
-  width: 412px;
+  width: 100%;
   height: 35px;
-  width: 195px;
   border: 1px solid rgba(237, 237, 237, 0.6);
   box-sizing: border-box;
   border-radius: 3px;
@@ -351,18 +338,14 @@ const ClassInput = styled.input`
 
 const Input = styled.input`
   height: 35px;
-  width: 195px;
+  width: 200px;
   border: 1px solid rgba(218, 210, 203, 0.6);
   box-sizing: border-box;
-  border-radius: 3px;
+  margin: 0;
 `;
 
 const FormText = styled.p`
-  font-family: Pangram;
-  font-style: normal;
-  font-weight: normal;
   font-size: 10px;
-  line-height: 100%;
   color: rgba(0, 0, 0, 0.65);
   margin: 0px;
   padding: 0px;
@@ -389,8 +372,8 @@ const SecondPageContainer = styled.div`
 
 const HorizontalContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
+  justify-content: space-evenly;
+  margin-top: 5%;
 `;
 
 const ClassDescriptionInput = styled.input`
@@ -399,7 +382,7 @@ const ClassDescriptionInput = styled.input`
   background: #ffffff;
   border: 1px solid rgba(218, 210, 203, 0.6);
   box-sizing: border-box;
-  border-radius: 3px;
+  margin-bottom: 5%;
 `;
 
 const WhiteboardInput = styled.input`
@@ -408,11 +391,12 @@ const WhiteboardInput = styled.input`
   background: #ffffff;
   border: 1px solid rgba(218, 210, 203, 0.6);
   box-sizing: border-box;
-  border-radius: 3px;
 `;
 
 const FooterText = styled.p`
   text-align: center;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 10px;
 `;
 
 export default ClassCreationForm;

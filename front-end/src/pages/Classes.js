@@ -66,11 +66,12 @@ const AddClassCircle = styled.div`
   border-radius: 50%;
   background-color: #020b30;
   cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const VectorPlusSign = styled.img`
-  height: 14px;
-  width: 14px;
+  height: auto;
+  width: auto;
 `;
 
 const customStyles = {
