@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import GlobalStyles from "./GlobalStyles";
 import Sidebar from "./components/Sidebar";
-import Home from "./pages/Home";
+import Classes from "./pages/Classes";
 import Analytics from "./pages/Analytics";
 import UserAccount from "./pages/UserAccount";
 import FAQ from "./pages/FAQ";
@@ -10,11 +11,12 @@ import FAQ from "./pages/FAQ";
 const App = () => {
   return (
     <BrowserRouter>
+      <GlobalStyles />
       <Container>
         <Sidebar />
         <Switch>
-          <Route exact path="/">
-            <Home />
+          <Route exact path="/classes">
+            <Classes />
           </Route>
           <Route exact path="/analytics">
             <Analytics />
