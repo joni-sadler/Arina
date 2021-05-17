@@ -27,6 +27,9 @@ const App = () => {
           <Route exact path="/faq">
             <FAQ />
           </Route>
+          <Route path="/">
+            <Classes />
+          </Route>
         </Switch>
       </Container>
     </BrowserRouter>
